@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Flight Details{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h1 class="mb-0" style="font-weight: 100;">Flight Details</h1>
+        </div>
+        <div class="card-body">
+            <h2 class="font-weight-bold">{{ flight.flight_name }} </h2><br/>
+            <p class="font-weight-bold">Route: <span class="font-weight-normal" style="font-weight: 100;">{{ flight.origin }} to {{ flight.destination }}</span></p>
+            <p class="font-weight-bold">Departure: <span class="font-weight-normal" style="font-weight: 100;">{{ flight.departure_time }}</span></p>
+            <p class="font-weight-bold">Arrival: <span class="font-weight-normal" style="font-weight: 100;">{{ flight.arrival_time }}</span></p>
+            <p class="font-weight-bold">Price per ticket: <span class="font-weight-normal" style="font-weight: 100;">${{ flight.price }}</span></p>
+            <a href="{% url 'book_flight' flight.id %}" class="btn btn-success">Book this flight</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

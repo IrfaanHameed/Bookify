@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking Confirmation{% endblock %}
+
+{% block content %}
+<div class="mt-4">
+    <h1>Booking Confirmation</h1>
+    <br/>
+    <p>Thank you for your booking, {{ booking.first_name }} {{ booking.last_name }}.</p>
+    <p><strong>Flight:</strong> {{ booking.flight.flight_name }} </p>
+    <p><strong>Route:</strong> {{ booking.flight.origin }} to {{ booking.flight.destination }}</p>
+    <p><strong>Departure:</strong> {{ booking.flight.departure_time }}</p>
+    <p><strong>Arrival:</strong> {{ booking.flight.arrival_time }}</p>
+    <p><strong>Total Amount:</strong> ${{ total_amount }}</p>
+
+    
+
+
+</div>
+{% endblock %}
+
+

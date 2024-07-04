@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Flight{% endblock %}
+
+{% block content %}
+<br/><br/>
+<div class="mt-4">
+    <div class="card">
+        <div class="card-body bg-dark text-white">
+            <h1 class="mb-0">Book Flight: <span class="font-weight-100">{{ flight.flight_name }}</span></h1>
+        </div>
+        <div class="card-body">
+            <p class="font-weight-bold">Route: <span class="font-weight-normal">{{ flight.origin }} to {{ flight.destination }}</span></p>
+            <p class="font-weight-bold">Departure: <span class="font-weight-normal">{{ flight.departure_time }}</span></p>
+            <p class="font-weight-bold">Arrival: <span class="font-weight-normal">{{ flight.arrival_time }}</span></p>
+            <p class="font-weight-bold">Price per ticket: <span class="font-weight-normal">${{ flight.price }}</span></p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="first_name" class="font-weight-bold">First Name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name" class="font-weight-bold">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="num_tickets" class="font-weight-bold">Number of Tickets</label>
+                    <input type="number" class="form-control" id="num_tickets" name="num_tickets" min="1" required>
+                </div>
+                <button type="submit" class="btn btn-success">Book</button>
+            </form>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+{% endblock %}
